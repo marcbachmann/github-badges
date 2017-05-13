@@ -1,0 +1,19 @@
+{
+  "name": "github-badges",
+  "version": "1.0.0",
+  "description": "### Example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "es6-template-strings": "^2.0.1",
+    "gemoji": "^4.1.0",
+    "github": "^9.2.0",
+    "moment": "^2.18.1",
+    "wayfarer": "^6.6.0"
+  },
+  "author": "Marc Bachmann <marc.brookman@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {}
+}
