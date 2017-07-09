@@ -50,8 +50,9 @@ module.exports = function () {
 
 // Apparently unicode characters aren't supported in svg
 const gemoji = require('gemoji')
+const regex = require('emoji-regex')()
 function removeEmojis (str) {
-  return str.replace(/([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD59])/g, function (emoji) {
+  return str.replace(regex, function (emoji) {
     emoji = gemoji.unicode[emoji]
     if (emoji) return `:${emoji.name}:`
     else return '??'

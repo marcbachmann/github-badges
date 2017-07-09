@@ -9,6 +9,7 @@ router.on('/404', function (params, req, res) {
   res.end()
 })
 
+
 router.on('/:owner/:repo/milestones/:type', function (params, req, res) {
   github.milestones({
     owner: params.owner,
@@ -23,8 +24,7 @@ router.on('/:owner/:repo/milestones/:type', function (params, req, res) {
 
       res.writeHead(404, {
         'Content-Type': 'image/svg+xml',
-        'Cache-Control': 'no-cache',
-        'Content-Length': badge.length
+        'Cache-Control': 'no-cache'
       })
 
       res.write(badge)
@@ -44,8 +44,7 @@ router.on('/:owner/:repo/milestones/:type', function (params, req, res) {
 
         res.writeHead(200, {
           'Content-Type': 'image/svg+xml',
-          'Cache-Control': 'no-cache',
-          'Content-Length': badgeString.length
+          'Cache-Control': 'no-cache'
         })
 
         console.log(`svg: ${milestone.url}`)
@@ -93,6 +92,7 @@ function milestoneBadge (m) {
     closed: m.closed || 0,
     ago: m.ago,
     due: m.due,
-    width: 464 / 100 * (m.complete || 0) // {{width}} is a value from 0 to 464
+    width: 464 / 100 * (m.complete || 0), // {{width}} is a value from 0 to 464
+    defs: (m.defs || []).join('')
   })
 }
